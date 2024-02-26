@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+        <div class="containers">
+            <div class="left">
+                <div class="sidebar">
+                    <a href="" class="menu-item active">
+                        <span><i class="uil uil-home"></i></span><h3>Home</h3>
+                    </a>
+                    <a href="" class="menu-item" >
+                        <span><i class="uil uil-compass"></i></span><h3>Explore</h3>
+                    </a>
+                    <a href="{% url 'show-notification' %}" class="menu-item" id="notifications">
+                        <span><i class="uil uil-bell"></i></span><h3>Notifications</h3>
+                        <div class="notifications-popup">
+                            <div>
+                                <div class="profile-pic">
+                                    <img src="./images/profile-2.jpg">
+                                </div>
+                                <div class="notifications-body">
+                                    <b>Keke benjamin</b>accepted your friend request <small class="text-muted">2 DAYS AGO</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-pic">
+                                    <img src="./images/profile-2.jpg">
+                                </div>
+                                <div class="notifications-body">
+                                    <b>Keke benjamin</b>accepted your friend request <small class="text-muted">2 DAYS AGO</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-pic">
+                                    <img src="./images/profile-2.jpg">
+                                </div>
+                                <div class="notifications-body">
+                                    <b>Keke benjamin</b>accepted your friend request <small class="text-muted">2 DAYS AGO</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-pic">
+                                    <img src="./images/profile-2.jpg">
+                                </div>
+                                <div class="notifications-body">
+                                    <b>Keke benjamin</b>accepted your friend request <small class="text-muted">2 DAYS AGO</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-pic">
+                                    <img src="./images/profile-2.jpg">
+                                </div>
+                                <div class="notifications-body">
+                                    <b>Keke benjamin</b>accepted your friend request <small class="text-muted">2 DAYS AGO</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="profile-pic">
+                                    <img src="./images/profile-2.jpg">
+                                </div>
+                                <div class="notifications-body">
+                                    <b>Keke benjamin</b>accepted your friend request <small class="text-muted">2 DAYS AGO</small>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{% url 'message' %}" class="menu-item" id="messages-notifications">
+                        <span><i class="uil uil-envelope-alt" ></i></span><h3>Message</h3>
+                    </a>
+                    <a href="{% url 'profile' request.user %}" class="menu-item">
+                        <span><i class="uil uil-bookmark"></i></span><h3>Bookmarks</h3>
+                    </a>
+<!--                    <a href="" class="menu-item">-->
+<!--                        <span><i class="uil uil-palette"></i></span><h3>Theme</h3>-->
+<!--                    </a>-->
+                    <a href="" class="menu-item">
+                        <span><i class="uil uil-setting"></i></span><h3>Settings</h3>
+                    </a>
+                </div>
+                <label for="create-post" class="btn btn-primary"><a href="{% url 'newpost' %}" style="color:#fff;"> Create Post</a></label>
+            </div>
+
+            <div class="middle">
+<!--                <div class="stories">-->
+<!--                    <div class="story" style="background: url({{request.user.profile.image.url}}) no-repeat center center/cover;">-->
+<!--                        <div class="profile-pic">-->
+<!--                            <img src="{{request.user.profile.image.url}}">-->
+<!--                        </div>-->
+<!--                    <p class="name">@{{request.user.username}}</p>-->
+<!--                    </div>-->
+<!--                    <div class="story" style="background: url({{request.user.profile.image.url}}) no-repeat center center/cover;">-->
+<!--                        <div class="profile-pic">-->
+<!--                            <img src="{{request.user.profile.image.url}}">-->
+<!--                        </div>-->
+<!--                    <p class="name">@{{request.user.username}}</p>-->
+<!--                    </div>-->
+<!--                    <div class="story" style="background: url({{request.user.profile.image.url}}) no-repeat center center/cover;">-->
+<!--                        <div class="profile-pic">-->
+<!--                            <img src="{{request.user.profile.image.url}}">-->
+<!--                        </div>-->
+<!--                    <p class="name">@{{request.user.username}}</p>-->
+<!--                    </div>-->
+<!--                    <div class="story" style="background: url({{request.user.profile.image.url}}) no-repeat center center/cover;">-->
+<!--                        <div class="profile-pic">-->
+<!--                            <img src="{{request.user.profile.image.url}}">-->
+<!--                        </div>-->
+<!--                    <p class="name">@{{request.user.username}}</p>-->
+<!--                    </div>-->
+<!--                    <div class="story" style="background: url({{request.user.profile.image.url}}) no-repeat center center/cover;">-->
+<!--                        <div class="profile-pic">-->
+<!--                            <img src="{{request.user.profile.image.url}}">-->
+<!--                        </div>-->
+<!--                    <p class="name">@{{request.user.username}}</p>-->
+<!--                    </div>-->
+<!--                    <div class="story" style="background: url({{request.user.profile.image.url}}) no-repeat center center/cover;">-->
+<!--                        <div class="profile-pic">-->
+<!--                            <img src="{{request.user.profile.image.url}}">-->
+<!--                        </div>-->
+<!--                    <p class="name">@{{request.user.username}}</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+            <div class="feeds">
+                {% for post in post_items %}
+                <div class="feed">
+                    <div class="head">
+                        <div class="user">
+                            <div class="profile-pic">
+                                 {% if post.user.profile.image %}
+                                    <a href="{{post.user.profile.image.url}}" class="post__avatar">
+
+                                        <img src="{{post.user.profile.image.url}}" alt="User Picture">
+
+                                    </a>
+                                    {% endif %}
+                                    <a href="{{post.user.username}}" class="post__user">{{ post.user.username }}</a>
+
+                            </div>
+                            <div class="info">
+                                <h3>{{ post.user.username }}</h3>
+                                <small>{{post.posted}}</small>
+                            </div>
+                        </div>
+                        <span class="edit">
+                                <i class="uil uil-ellipsis-h"></i>
+                        </span>
+                    </div>
+                    <div class="photo">
+                        <a href="{% url 'post-details' post.id %}">
+                            <img class="post__media" src="{{ post.picture.url }}" alt="Post Content" style="width: 700px; height: 348px; object-fit: cover;">
+                        </a>
+                    </div>
+                    <div class="action-btn">
+                        <div class="interaction-buttons">
+                            <a href="{% url 'like' post.id %}" class="post__button">
+                            <span><i class="uil uil-heart"></i></span>
+                            </a>
+                            <span><i class="uil uil-comment-dots"></i></span>
+                            <span><i class="uil uil-share-alt"></i></span>
+                        </div>
+                        <div class="bookmark">
+                            <a href="{% url 'favourite' post.id %}" class="post__button post__button--align-right">
+                                    <span><i class="uil uil-bookmark-full"></i></span>
+                                </a>
+                        </div>
+                    </div>
+
+                <div class="liked-by">
+                    <p><b>{{post.likes}}</b>  <b> others</b></p>
+                </div>
+                <div class="caption">
+                    <p><b>{{ post.user.username }}</b> <span>
+                        <a class="post__name--underline" href="#"><b>@{{post.user.username}}</b></a>
+                        {{post.caption}}
+                        </span> <span class="harsh-tag">#lifestyle</span></p>
+                    <div class="comments text-muted">
+                        <p style="font-size: 13px;">{% for tag in post.tags.all %}
+                                    <a href="{{ tag.get_absolute_url }}" style="text-decoration: none;">
+                                        #{{ tag }}
+                                    </a>
+                                    {% endfor %}
+                                </p>
+                    </div>
+                </div>
+            </div>
+                {% endfor %}
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="messages">
+                    <div class="heading">
+                        <h4>Messages</h4><i class="uil uil-edit"></i>
+                    </div>
+
+                    <div class="search-bar">
+                        <i class="uil uil-search"></i>
+                        <input type="search" placeholder="Search messages" id="messages-search">
+                    </div>
+
+                    <div class="category">
+                        <h6 class="active">Primary</h6>
+                        <h6>General</h6>
+                        <h6 class="message-request">Request(5)</h6>
+                    </div>
+
+                    <div class="message">
+                        <div class="profile-pic">
+                            <img src="./images/profile-17.jpg" alt="">
+                            <div class="active"></div>
+                        </div>
+                        <div class="message-body">
+                            <h5>Eden Quist</h5>
+                            <p class="text-muted">Just woke up bruh</p>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <div class="profile-pic">
+                            <img src="./images/profile-12.jpg" alt="">
+                        </div>
+                        <div class="message-body">
+                            <h5>Eden Quist</h5>
+                            <p class="text-muted">Just woke up bruh</p>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <div class="profile-pic">
+                            <img src="./images/profile-14.jpg" alt="">
+                            <div class="active"></div>
+                        </div>
+                        <div class="message-body">
+                            <h5>Eden Quist</h5>
+                            <p class="text-muted">Just woke up bruh</p>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <div class="profile-pic">
+                            <img src="./images/profile-18.jpg" alt="">
+                        </div>
+                        <div class="message-body">
+                            <h5>Eden Quist</h5>
+                            <p class="text-muted">Just woke up bruh</p>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <div class="profile-pic">
+                            <img src="./images/profile-20.jpg" alt="">
+                        </div>
+                        <div class="message-body">
+                            <h5>Eden Quist</h5>
+                            <p class="text-muted">Just woke up bruh</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="friend-request">
+                    <h4>Request</h4>
+                     {% for user in all_users %}
+                            {% if request.user.username != user.username %}
+                    <div class="request">
+                        <div class="info">
+                            <div class="profile-pic">
+                                <a href="{% url 'profile' user %}">
+                                    <img src="{{user.profile.image.url}}" alt="User Picture">
+                                </a>
+                            </div>
+                            <div>
+                                {% if user.profile.first_name %}
+                                    <h5><a href="{% url 'profile' user %}" style="text-decoration: none; color:#000;">{{user.profile.first_name|title}} {{user.profile.last_name|title}}</a></h5>
+                                    {% else %}
+                                    <a href="{% url 'profile' user %}">{{user.username}}</a>
+                                    {% endif %}
+                                    <p class="text-muted">@{{user.username}}</p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="action">
+                            <button class="btn btn-primary">
+                                {% if follow_status == True %}
+                                <a href="{% url 'follow' user 0 %}" >UnFollow</a>
+                                {% else %}
+                                <a href="{% url 'follow' user 1 %}" style="color:#fff;">Follow</a>
+                                {% endif %}</button>
+                        </div>
+                    </div>
+                    {% endif %}
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
