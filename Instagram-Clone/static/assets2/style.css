@@ -46,8 +46,10 @@ body {
 }
 
 .phone-app-demo {
+  margin-left:-100px
   height: 61.8rem;
-  background: url("./images/mobile-app.png") center no-repeat;
+  object-fit:cover;
+  background: url("./images/mobile-app.png") center no-repeat ;
   flex: 1;
 }
 
